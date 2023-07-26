@@ -1,4 +1,4 @@
-### websiteclubeatleticolinense
+### WEBSITE CLUBE ATÉTICO LINENSE
 
 ### Descrição do Projeto
 Este repositório abriga o projeto de conclusão de curso intitulado "Desenvolvimento de um Website Moderno para o Clube Atlético Linense". O objetivo principal deste trabalho é criar um site atualizado e otimizado para o Clube Atlético Linense, uma importante equipe de futebol, com o intuito de proporcionar aos seus torcedores e visitantes uma experiência online mais atrativa, interativa e intuitiva.
