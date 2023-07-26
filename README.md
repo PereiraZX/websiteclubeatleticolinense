@@ -17,7 +17,7 @@ Integrar recursos multimídia, como fotos e vídeos dos jogos e treinamentos, pa
 
 Desenvolver um painel administrativo seguro, permitindo que os membros da equipe do Clube possam gerenciar e atualizar facilmente o conteúdo do site.
 
-##Funcionalidades Principais
+### Funcionalidades Principais
 - Página inicial com destaque para os próximos jogos, notícias e destaques do clube;
 - Páginas dedicadas a informações detalhadas sobre o clube, sua história, elenco e comissão técnica;
 - Calendário de jogos atualizado, com opções de filtragem por campeonato e local
