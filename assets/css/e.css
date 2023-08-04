@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* Vermelho escuro */
+    color: #ff0808; /* Branco */
+  }
+  
+  .forgot-password-container {
+    max-width: 400px;
+    margin: 100px auto;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    margin-bottom: 30px;
+  }
+  
+  label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #000000; /* Preto */
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    background-color: #474646; /* Vermelho escuro */
+    color: #ffffff; /* Branco */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .toggle-mode {
+    color: #c62828; /* Vermelho escuro */
+    text-decoration: underline;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .instruction {
+    font-size: 14px;
+  }
