@@ -1,3 +1,5 @@
+import "https://cdn.jsdelivr.net/npm/sweetalert2@11";
+
 "use strict";
 
 const buttonSubmitRegister = document.querySelector(".button-submit-cadastro");
@@ -20,6 +22,16 @@ async function submitRegister() {
 
     const data = await response.json();
     console.log(data);
+
+    if (data.type == 'error') {
+      alert("ola")
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+        footer: '<a href="">Why do I have this issue?</a>'
+      })
+    }
 
     // window.location.href = "http://localhost/WEBSITELINENSE/assets/login/view/loginAdm.html"
 }
