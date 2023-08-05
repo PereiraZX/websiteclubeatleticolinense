@@ -38,7 +38,7 @@
             </div>
         </div>
         <form id="login-administrador" method="post" action="assets/linense/controller/autenticacao-adm/verificacao.php">
-    
+        <form id="administrador-reset" method="post" action="assets/linense/controller/autenticacao-adm/verificacao.php">
             <div class="container">
                 <h2 class="title-login">Login Administrador</h2>
                 <p>Realize o login para continuar</p>
@@ -67,7 +67,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="api/model/passwordReset/reset.php?token=<?php echo urlencode($token); ?>">Esqueceu sua senha?</a>
+                <a href="api/model/passwordReset/insert-mail.html">Esqueceu sua senha?</a>
 
                 <input type="submit" value="Entrar" id="button-submit-login">
             </div>

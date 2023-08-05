@@ -1,21 +1,24 @@
 <?php
+
 include_once '../../connection/conn.php';
 
-require 'PHPMailer/PHPMailer.php';
-require 'PHPMailer/SMTP.php';
-require 'PHPMailer/Exception.php';
+require '../../../PHPMailer/PHPMailer.php';
+require '../../../PHPMailer/SMTP.php';
+require '../../../PHPMailer/Exception.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $user_adm = $_POST['user_adm'];
+$resetLink = 'reset.php';
 
-    // Verifica se o usuário existe no banco de dados
-    $sql_check_user = "SELECT id_adm, email_adm FROM adm WHERE user_adm = :user_adm";
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email_adm = $_POST['email_adm'];
+
+    // Verifica se o e-mail existe no banco de dados/ se está correto
+    $sql_check_user = "SELECT email_adm FROM adm WHERE email_adm = :email_adm";
     $stmt_check_user = $pdo->prepare($sql_check_user);
-    $stmt_check_user->bindParam(':user_adm', $user_adm);
+    $stmt_check_user->bindParam(':email_adm', $email_adm);
     $stmt_check_user->execute();
 
     if ($stmt_check_user->rowCount() > 0) {
@@ -43,16 +46,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $mail->Port = 587;
         $mail->SMTPSecure = 'tls';
         $mail->SMTPAuth = true;
-        $mail->Username = 'seu_email@gmail.com';
-        $mail->Password = 'sua_senha';
+        $mail->Username = 'lk89gf@gmail.com';
+        $mail->Password = 'qtuqfatoyosmukgx';
     
         // Configurações do remetente e destinatário
         $mail->setFrom('seu_email@gmail.com', 'Seu Nome');
         $mail->addAddress($email_adm);
     
         // Configurações do e-mail
-        $mail->Subject = 'Redefinição de senha';
-        $mail->Body = "Olá! Clique no link a seguir para redefinir sua senha: reset.php?token=$token";
+        $mail->Subject = 'Redefinicao de Senha';
+        $mail->Body = "Olá! Clique no link a seguir para redefinir sua senha: $resetLink";
     
         // Envio do e-mail
         if ($mail->send()) {
@@ -61,22 +64,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "Falha ao enviar o e-mail: " . $mail->ErrorInfo;
         }
     } else {
-        echo "Usuário não existe ou está incorreto!";
+        echo "E-mail não existe ou está incorreto!";
     }
 }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Esqueceu a Senha</title>
-</head>
-<body>
-    <h2>Esqueceu a Senha</h2>
-    <form method="POST" action="">
-        <label for="user_adm">Usuário:</label>
-        <input type="text" name="user_adm" required>
-        <br>
-        <button type="submit">Enviar Link de Recuperação</button>
-    </form>
-</body>
-</html>
+
+
+

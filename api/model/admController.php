@@ -3,20 +3,33 @@
 
     $requestData = $_REQUEST;
 
+<<<<<<< HEAD
     // CRUD ADMINISTRADOR
+=======
+    // CRUD ADM
+>>>>>>> aad3b13a813a8a2b034292e5cb7f7563fe3e5664
 
     // CREATE
     if ($requestData["operation"] == "create") {
         if (
             empty($requestData["user_adm"]) || 
             empty($requestData["email_adm"]) ||
+<<<<<<< HEAD
             empty($requestData["senha_adm"])
+=======
+            empty($requestData["senha_adm"]) ||
+            empty($requestData["confirmar_senha"])
+>>>>>>> aad3b13a813a8a2b034292e5cb7f7563fe3e5664
             ) {
             $dados = array(
                 "type" => "error",
                 "mensagem" => "Existe(m) campo(s) obrigatório(s) não preenchido"
             );
         } else {
+<<<<<<< HEAD
+=======
+
+>>>>>>> aad3b13a813a8a2b034292e5cb7f7563fe3e5664
             try {
 
                 // Verifica se o usuario já existe no banco de dados
@@ -24,6 +37,7 @@
                 $stmt_check_email = $pdo->prepare($sql_check_email);
                 $stmt_check_email->bindParam(":user_adm", $user_adm);
                 $stmt_check_email->execute();
+<<<<<<< HEAD
     
                 if ($stmt_check_email->rowCount() > 0) {
                     // E-mail já está cadastrado, exiba uma mensagem de erro ou tome outra ação necessária
@@ -67,11 +81,60 @@
                 $dados = array(
                     "type" => "error",
                     "mensagem" => "Erro ao salvar o registro: " . $e
+=======
+        
+                    if ($stmt_check_email->rowCount() > 0) {
+                        // E-mail já está cadastrado, exiba uma mensagem de erro ou tome outra ação necessária
+                        echo "Usúario já existe";
+                        exit();
+                    }
+    
+                    // Verifica se o e-mail já existe no banco de dados
+                    $sql_check_email = "SELECT * FROM adm WHERE email_adm = :email";
+                    $stmt_check_email = $pdo->prepare($sql_check_email);
+                    $stmt_check_email->bindParam(":email", $email_adm);
+                    $stmt_check_email->execute();
+                    
+                    if ($stmt_check_email->rowCount() > 0) {
+                        // E-mail já está cadastrado, exiba uma mensagem de erro ou tome outra ação necessária
+                        echo "O e-mail já está cadastrado.";
+                        exit();
+                    }
+    
+                    // Criptografa a senha usando a função password_hash
+                    $senha_hash = password_hash($requestData["senha_adm"], PASSWORD_DEFAULT);
+    
+    
+                    // Inserindo usuário no banco de dados
+                    $sql = "INSERT INTO adm (user_adm, email_adm, senha_adm ) VALUES (?, ?, ?)";
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute([
+                        $requestData["user_adm"],
+                        $requestData["email_adm"],
+                        $senha_hash
+                    ]);
+    
+                    $dados = array(
+                        "type" => "success",
+                        "mensagem" => "Registro salvo com sucesso!"
+                    );
+    
+                
+    
+            } catch (PDOException $e) {
+                $dados = array(
+                        "type" => "error",
+                        "mensagem" => "Erro ao salvar o registro: " . $e
+>>>>>>> aad3b13a813a8a2b034292e5cb7f7563fe3e5664
                 );
             }
         }
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> aad3b13a813a8a2b034292e5cb7f7563fe3e5664
     // READ
     if ($requestData["operation"] == "read") {
 
@@ -96,6 +159,14 @@
         }
     }
 
+<<<<<<< HEAD
     echo json_encode($dados);
 
 ?>
+=======
+    // // DELETE
+    // if ($requestData["operation"] == "delete") {
+    // }
+
+    echo json_encode($dados);
+>>>>>>> aad3b13a813a8a2b034292e5cb7f7563fe3e5664

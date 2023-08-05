@@ -21,7 +21,11 @@
         $_SESSION['id_adm'] = $dados_adm['id_adm'];
         $_SESSION['user_adm'] = $dados_adm['user_adm'];
 
+<<<<<<< HEAD
         header("Location: ../../../cms.html");
+=======
+        header("Location: ../../../cms.php");
+>>>>>>> aad3b13a813a8a2b034292e5cb7f7563fe3e5664
 
         exit();
     } else {

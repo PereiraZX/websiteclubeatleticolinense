@@ -1,4 +1,20 @@
 
+<<<<<<< HEAD
+=======
+<?php
+    if (isset($_POST['logout'])) {
+        session_destroy();
+        header('Location:  assets/login/controller/logoutAdm.php');
+        exit();
+    }
+    
+    if (!isset($_SESSION['id_adm'])) {
+        header('Location: assets/login/view/loginAdm.html');
+        exit();
+    }
+?>
+
+>>>>>>> aad3b13a813a8a2b034292e5cb7f7563fe3e5664
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -172,7 +188,11 @@
     <main class="main">
         <div class="container">
             <div class="text-info">
+<<<<<<< HEAD
                 <h3>Seja bem-vindo, adm ! <br> Este é o  gerenciador de conteudo do site do <span> <br> Clube Atletico Linense </span> </h3>
+=======
+                <h3>Seja bem-vindo, <span> <?php echo $_SESSION["user_adm"] ?> </span> ! <br> Este é o  gerenciador de conteudo do site do <span> <br> Clube Atletico Linense </span> </h3>
+>>>>>>> aad3b13a813a8a2b034292e5cb7f7563fe3e5664
                 <hr>
                 <p>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae rem aperiam illum pariatur possimus
