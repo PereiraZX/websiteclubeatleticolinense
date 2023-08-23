@@ -21,7 +21,7 @@
         $_SESSION['id_adm'] = $dados_adm['id_adm'];
         $_SESSION['user_adm'] = $dados_adm['user_adm'];
 
-        header("Location: ../../../cms.html");
+        header("Location: ../../../cms.php");
 
         exit();
     } else {

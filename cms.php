@@ -1,4 +1,23 @@
 
+<?php
+
+session_start();
+
+if (isset($_POST['logout'])) {
+
+    session_destroy();
+    header('Location:  assets/login/controller/logoutAdm.php');
+    exit();
+}
+
+if (!isset($_SESSION['id_adm'])) {
+    // Se o usuário não estiver logado, redireciona para a página de login
+    header('Location: assets/login/view/loginAdm.html');
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -151,9 +170,11 @@
                                         d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
                                 </svg>
                                 <a href="">
-                                    <form method="post">
-                                        <button type="submit" name="logout">Sair</button>
-                                    </form>
+                                    <a href="">
+                                        <form method="post">
+                                            <button type="submit" name="logout"> Sair</button>
+                                        </form>  
+                                    </a>
                                 </a>
                             </li>
                         </ul>
@@ -172,8 +193,9 @@
     <main class="main">
         <div class="container">
             <div class="text-info">
-                <h3>Seja bem-vindo, adm ! <br> Este é o  gerenciador de conteudo do site do <span> <br> Clube Atletico Linense </span> </h3>
-                <hr>
+                <h3>Seja bem-vindo, <span> <?php echo $_SESSION["user_adm"] ?></span>! <br>  Este é o  gerenciador de conteudo do site do <span> <br>Clube Atletico
+                    Linense</span></h3>
+            <hr>
                 <p>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae rem aperiam illum pariatur possimus
                     porro, quidem alias natus dignissimos aliquam vero quis, amet omnis laudantium magnam, eaque fuga
